@@ -1,0 +1,155 @@
+// Rem settings
+// $rem-baseline: 10px !default; <--- Add this inside html tag /= font-size 62.5%
+$rem-fallback: false !default;
+$rem-px-only: false !default;
+
+// Em settings
+// $em-base: 16px !default; <--- Add this inside settings directory file
+
+
+// -----------------------------------------------------
+// Unit REM
+// -----------------------------------------------------
+
+// Sass function and mixin to convert px in rem.
+// example: http://www.sassmeister.com/gist/f75f0ffd0910a99eee77
+// list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+@function rem-separator($list) {
+  @if function-exists("list-separator") == true {
+    @return list-separator($list);
+  }
+
+  $test-list: ();
+  @each $item in $list {
+    $test-list: append($test-list, $item, space);
+  }
+
+  @return if($test-list == $list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+  font-size: $zoom / 16px * $rem-baseline;
+}
+
+@function rem-convert($to, $values...) {
+  $result: ();
+  $separator: rem-separator($values);
+
+  @each $value in $values {
+    @if type-of($value) == "number" and unit($value) == "rem" and $to == "px" {
+      $result: append($result, $value / 1rem * $rem-baseline, $separator);
+    } @else if type-of($value) == "number" and unit($value) == "px" and $to == "rem" {
+      $result: append($result, $value / ($rem-baseline / 1rem), $separator);
+    } @else if type-of($value) == "list" {
+      $result: append($result, rem-convert($to, $value...), $separator);
+    } @else {
+      $result: append($result, $value, $separator);
+    }
+  }
+
+  @return if(length($result) == 1, nth($result, 1), $result);
+}
+
+@function rem($values...) {
+  @if $rem-px-only {
+    @return rem-convert(px, $values...);
+  } @else {
+    @return rem-convert(rem, $values...);
+  }
+}
+
+@mixin rem($properties, $values...) {
+  @if type-of($properties) == "map" {
+    @each $property in map-keys($properties) {
+      @include rem($property, map-get($properties, $property));
+    }
+  } @else {
+    @each $property in $properties {
+      @if $rem-fallback or $rem-px-only {
+        #{$property}: rem-convert(px, $values...);
+      }
+      @if not $rem-px-only {
+        #{$property}: rem-convert(rem, $values...);
+      }
+    }
+  }
+}
+
+
+// -----------------------------------------------------
+// Unit EM
+// -----------------------------------------------------
+
+// Sass function and mixin to convert px in em.
+// http://www.sassmeister.com/gist/4481fa0aeeaf49ea9325
+// list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+@function em-separator($list) {
+  @if function-exists("list-separator") == true {
+    @return list-separator($list);
+  }
+
+  $test-list: ();
+  @each $item in $list {
+    $test-list: append($test-list, $item, space);
+  }
+
+  @return if($test-list == $list, space, comma);
+}
+
+@function em($values...) {
+  $context: nth($values, length($values));
+  $result: ();
+  $separator: em-separator($values);
+
+  @for $i from 1 through length($values) - 1 {
+    $value: nth($values, $i);
+    @if type-of($value) == "number" and unit($value) == "px" {
+      $result: append($result, $value / $context * 1em, $separator);
+    } @else if type-of($value) == "list" {
+      $result: append($result, em(append($value, $context)...), $separator);
+    } @else {
+      $result: append($result, $value, $separator);
+    }
+  }
+
+  @return if(length($result) == 1, nth($result, 1), $result);
+}
+
+@mixin em($properties, $context) {
+  @each $property in map-keys($properties) {
+    #{$property}: em(append(map-get($properties, $property), $context)...);
+  }
+}
+
+// Generates line-height values in both pixels and em.
+@mixin line-height($height-value: 12) {
+    line-height: $height-value * 1px; //fallback for old browsers
+    line-height: (1 / ($base-font-size / ($base-font-size * 0 + 1)) * $height-value * 1em);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

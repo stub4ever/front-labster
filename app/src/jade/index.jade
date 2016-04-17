@@ -1,0 +1,23 @@
+extends ./views/_layout.jade
+block vars
+	- var pageTitle = 'Home'
+	- var bodyClass = 'home'
+
+block content
+	nav.c-header
+		.c-header--left
+			ul.c-header--list
+				li.c-header__item-link
+					a(href="#") Discover
+				li.c-header__item-link
+					a(href="#")
+						i.mdi.mdi-magnify
+				li.c-header__item-link
+					a(href="#") Log in
+				li.c-header__item-link
+					a(href="#") Sign up
+
+		.c-header--right
+			a(href="#")
+				img(src="#").c-header-brand
+			.c-header--brand__name stuboki

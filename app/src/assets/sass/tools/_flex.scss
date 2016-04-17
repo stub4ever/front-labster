@@ -1,0 +1,114 @@
+// -----------------------------------------------------
+// Flexbox
+// -----------------------------------------------------
+
+
+/**
+ * Fixes the min-height bug in IE10-11.
+ * This class should be added to a container element as described in
+ * Flexbug #3. See http://bit.ly/1gy8OJS for details.
+ */
+.u-ieMinHeightBugFix {
+  display: flex;
+  flex-direction: column;
+}
+
+// Flex Grid system
+@mixin flex-row{
+  display: flex;
+  width: 100%;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+
+  @if $browser-support {
+    flex-direction: row;
+    flex-wrap: wrap;
+  } @else {
+    display: inline-block;
+  }
+}
+
+@mixin flex-cell($cell: 1) {
+  flex: $cell;
+  width: 100%;
+}
+
+@mixin col-12{
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@mixin col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+@mixin col-4 {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+}
+
+@mixin col-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+@mixin col-2 {
+  flex: 0 0 16.666%;
+  max-width: 16.666%;
+}
+
+@mixin col-1 {
+  flex: 0 0 8.333%;
+  max-width: 8.333%;
+}
+
+@mixin flexbox {
+  display: flex;
+}
+
+// Flex order
+@mixin flex-order($order: 0) {
+  order: $order;
+}
+
+$-content: (
+  'left': flex-start,
+  'right': flex-end,
+  'center': center,
+  'justify': space-between,
+  'space': space-around,
+  );
+
+$-items: (
+  'top': flex-start,
+  'bottom': flex-end,
+  'center': center,
+  'stretch': stretch,
+  );
+
+// Flex $x = (horizontal alignment) + $y  = (vertical alignment)
+@mixin flex-align($x: null, $y: null){
+  display: flex;
+  @if $x {
+    @if map-has-key($-content, $x) {
+      $x: map-get($-content, $x);
+    }
+    @else {
+      @warn '[$x], $y: For justify-content: left, right, center, justify, or spaced'
+    }
+  }
+
+  @if $y {
+    @if map-has-key($-items, $y) {
+      $y: map-get($-items, $y);
+    }
+    @else {
+      @warn '$x, [$y]: For align-items: use top, bottom, center or stretch'
+    }
+  }
+
+  justify-content: $x;
+  align-items: $y;
+}

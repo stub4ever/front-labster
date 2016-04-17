@@ -1,0 +1,14 @@
+/node_modules
+/bower_components
+/app/build
+
+.sass-cache
+.DS_Store
+npm-debug.log
+Desktop.ini
+.ftppass.json
+
+/app/src/assets/sass/vendor/bourbon
+/app/src/assets/sass/vendor/include-media
+/app/src/assets/sass/vendor/normalize-scss
+/app/src/assets/sass/vendor/susy

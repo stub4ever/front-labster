@@ -1,0 +1,22 @@
+{
+  "name": "stub-changes",
+  "version": "0.1.0",
+  "authors": [
+    "Van Quoc Bui <bui.vquoc@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/aderaaij/totallystatical",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-scss": "latest",
+    "susy": "latest",
+    "include-media": "latest",
+    "bourbon": "latest"
+  }
+}

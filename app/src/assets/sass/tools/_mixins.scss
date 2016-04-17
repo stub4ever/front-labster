@@ -1,0 +1,306 @@
+// -----------------------------------------------------
+// browse-support
+// -----------------------------------------------------
+
+// MUST applied to `<html> for optimise text
+%optimize-rendering-text {
+  text-rendering: optimizeLegibility;
+}
+
+// MUST applied to `<html> for optimise flexbox
+%border-box-on-every-element  {
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+}
+
+/// Applies the micro clearfix hack popularized by Nicolas Gallagher. Include this mixin on a container if its children are all floated, to give the container a proper height.
+/// The clearfix is augmented with specific styles to prevent borders in flexbox environments
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix Hack
+/// @link http://danisadesigner.com/blog/flexbox-clear-fix-pseudo-elements/ Flexbox fix
+
+%clearfix {
+  &::before,
+  &::after {
+    content: " ";
+    display: table;
+    flex-basis: 0;
+    order: 1;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// -----------------------------------------------------
+// Colors
+// -----------------------------------------------------
+
+
+
+// -----------------------------------------------------
+// Position
+// -----------------------------------------------------
+
+/// Shorthandizes position declarations.
+/// @param {String} $type - Either `relative`, `absolute` or `fixed`
+/// example:  @include position(absolute, $top: 10px, $left: 10px);
+@mixin position($type, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+/// Vertically centers the element inside of its first non-static parent,
+/// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
+@mixin vertical-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/// Horizontally centers the element inside of its first non-static parent,
+/// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
+@mixin horizontal-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/// Absolutely centers the element inside of its first non-static parent,
+/// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+// -----------------------------------------------------
+// Images
+// -----------------------------------------------------
+
+
+
+// -----------------------------------------------------
+// Typography
+// -----------------------------------------------------
+
+/**
+ * Create a fully formed type style (sizing and vertical rhythm) by passing in a
+ * single value, e.g.:
+ *
+   `@include font-size(10px);`
+ *
+ * Thanks to @redclov3r for the `line-height` Sass:
+ * twitter.com/redclov3r/status/250301539321798657
+ */
+@mixin font-size($font-size, $line-height:true){
+    font-size:$font-size;
+    font-size:($font-size / $base-font-size)*1em;
+    @if $line-height == true{
+        line-height:ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+    }
+}
+
+
+// Given the location of a webfont, will generate a font-face declaration with multiple file formats.
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($file-name + '.eot');
+    src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+    url($file-name + '.woff') format('woff'),
+    url($file-name + '.ttf')  format('truetype'),
+    url($file-name + '.svg##{$font-name}')  format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+// -----------------------------------------------------
+// Symbol
+// -----------------------------------------------------
+
+
+/**
+ * CSS arrows!!! But... before you read on, you might want to grab a coffee...
+ *
+ * This mixin creates a CSS arrow on a given element. We can have the arrow
+ * appear in one of 12 locations, thus:
+ *
+ *       01    02    03
+ *    +------------------+
+ * 12 |                  | 04
+ *    |                  |
+ * 11 |                  | 05
+ *    |                  |
+ * 10 |                  | 06
+ *    +------------------+
+ *       09    08    07
+ *
+ * You pass this position in along with a desired arrow color and optional
+ * border color, for example:
+ *
+ * `@include arrow(top, left, red)`
+ *
+ * for just a single, red arrow, or:
+ *
+ * `@include arrow(bottom, center, red, black)`
+ *
+ * which will create a red triangle with a black border which sits at the bottom
+ * center of the element. Call the mixin thus:
+ *
+   .foo{
+       background-color:#BADA55;
+       border:1px solid #ACE;
+       @include arrow(top, left, #BADA55, #ACE);
+   }
+ *
+ */
+@mixin arrow($arrow-edge, $arrow-location, $arrow-color, $border-color: $arrow-color){
+
+    @if $arrow-edge == top{
+
+        @extend %arrow--top;
+
+        &:before{
+            border-bottom-color:$border-color!important;
+        }
+
+        &:after{
+            border-bottom-color:$arrow-color!important;
+        }
+
+        @if $arrow-location == left{
+            @extend %arrow--left;
+        }
+
+        @if $arrow-location == center{
+            @extend %arrow--center;
+        }
+
+        @if $arrow-location == right{
+            @extend %arrow--right;
+        }
+
+    }
+
+    @if $arrow-edge == right{
+
+        @extend %arrow--far;
+
+        &:before{
+            border-left-color:$border-color!important;
+        }
+
+        &:after{
+            border-left-color:$arrow-color!important;
+        }
+
+        @if $arrow-location == top{
+            @extend %arrow--upper;
+        }
+
+        @if $arrow-location == center{
+            @extend %arrow--middle;
+        }
+
+        @if $arrow-location == bottom{
+            @extend %arrow--lower;
+        }
+
+    }
+
+    @if $arrow-edge == bottom{
+
+        @extend %arrow--bottom;
+
+        &:before{
+            border-top-color:$border-color!important;
+        }
+
+        &:after{
+            border-top-color:$arrow-color!important;
+        }
+
+        @if $arrow-location == left{
+            @extend %arrow--left;
+        }
+
+        @if $arrow-location == center{
+            @extend %arrow--center;
+        }
+
+        @if $arrow-location == right{
+            @extend %arrow--right;
+        }
+
+    }
+
+    @if $arrow-edge == left{
+
+        @extend %arrow--near;
+
+        &:before{
+            border-right-color:$border-color!important;
+        }
+
+        &:after{
+            border-right-color:$arrow-color!important;
+        }
+
+        @if $arrow-location == top{
+            @extend %arrow--upper;
+        }
+
+        @if $arrow-location == center{
+            @extend %arrow--middle;
+        }
+
+        @if $arrow-location == bottom{
+            @extend %arrow--lower;
+        }
+
+    }
+
+}
+
+
+// -----------------------------------------------------
+// Transition
+// -----------------------------------------------------
+
+/// Transition helper
+// example @include transition(0.3s, ease-in);
+@mixin transition($time: 1s, $timing-function: ease-in-out) {
+  @include prefix(transition, all $time $timing-function, 'webkit');
+}
+
+/// Slide-in-from creates and calls an animation that slides an element on a given axis for a given amount of space.
+// example @include slide-in-from(y, -200px, 3s ease alternate infinite);
+@mixin slide-in-from($slide-axis: x, $slide-offset: -100px, $animation-properties: 3s ease-out) {
+  $slide-start: if($slide-axis == x, translateX($slide-offset), translateY($slide-offset));
+  $slide-end: if($slide-axis == x, translateX(0), translateY(0));
+
+  @include keyframes(slide-in-#{$slide-axis}-#{$slide-offset}){
+    0% {
+      @include opacity(0);
+      @include transform($slide-start);
+    }
+    75% {
+      @include transform($slide-end);
+    }
+    100% {
+      @include opacity(1);
+    }
+  }
+
+  @include prefix(animation, slide-in-#{$slide-axis}-#{$slide-offset} $animation-properties, 'webkit');
+}
+
