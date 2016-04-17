@@ -1,6 +1,6 @@
-# Experimental
+Experimental
 
-## Learning curve on writing modern Front-end architecture
+## Start writing modern Front-end architecture
 
 ### Naming Conventions // BEM structure
   - Able to work with more layers
