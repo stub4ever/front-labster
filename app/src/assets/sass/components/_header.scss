@@ -1,22 +1,63 @@
 /*------------------------------------*\
-    #HEADER
+	#HEADER
 \*------------------------------------*/
 
 .c-header {
+	    height: 90px;
+	    display: flex;
+	    background-color: black;
+	    max-width: 100%;
+	    justify-content: space-between;
   //header-left
     &--left {
+	    display: flex;
+	    align-items: center;
+	    flex: 0 0 47.5%;
+	    margin-left: 2.5%;
     }
     &--list{
+	    display: flex;
+	    flex: 1;
+	    width: 100%;
+	    text-align: center;
+	    align-items: center
     }
     &__item-link {
+	    text-align: center;
+	    margin: 10px 20px;
+	    a {
+	    	color: white;
+	    }
+	    i {
+	    	font-size: 20px;
+	    }
+	    &:nth-child(odd) {
+	    	margin: 10px 0;
+	    }
     }
     &-brand {
     }
     //header-right
     &--right {
+	   	display: flex;
+	    align-items: center;
+	    flex: 0 0 47.5%;
+	    justify-content: flex-end;
+	    margin-right: 2.5%;
     }
-    &-brand{
+    &--brand-logo{
+    	margin-right: 20px;
     }
     &__brand-name{
+    	color: white;
+    	font-size: 20px;
     }
 }
+
+
+
+
+
+
+
+
