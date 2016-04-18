@@ -1,0 +1,46 @@
+/*------------------------------------*\
+		DEFAULT
+\*------------------------------------*/
+
+/**
+ * Debug mode will visually highlight any potential markup/accessibility quirks
+ * in the browser. Set to `true` or `false`.
+ */
+$debug-mode: false!default;
+
+/**
+ * BASE UNIT
+ */
+
+// Rem settings for rem unit > tools
+$rem-baseline: 10px !default;
+$rem-fallback: false !default;
+$rem-px-only: false !default;
+
+// Em setting for em unit > tools
+$em-base: 16px !default;
+$em-line-height: 24px !default;
+
+/**
+ * BASE FONTS
+ */
+
+// Base main Font-family
+$base-font-family: 'lato', sans-serif!default;
+
+// base headings fonts  			 		// base headings line-height
+$h1-size: em(60px, $em-base)!default;		$h1-line-height: em(28px, $em-line-height)!default;
+$h2-size: em(48px, $em-base)!default;		$h2-line-height: em(28px, $em-line-height)!default;
+$h3-size: em(44px, $em-base)!default;		$h3-line-height: em(28px, $em-line-height)!default;
+$h4-size: em(38px, $em-base)!default;		$h4-line-height: em(28px, $em-line-height)!default;
+$h5-size: em(34px, $em-base)!default;		$h5-line-height: em(30px, $em-line-height)!default;
+$h6-size: em(30px, $em-base)!default;		$h6-line-height: em(32px, $em-line-height)!default;
+
+// base paragaphs fonts 					// base paragaphs line-height
+$p-font-size: em(25px,$em-base)!default;	$p-line-height: em(26px,$em-base)!default;
+
+// base link fonts
+$a-font-size: em(25px,$em-base)!default;
+
+
+
