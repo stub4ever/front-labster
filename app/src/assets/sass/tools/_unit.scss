@@ -1,7 +1,7 @@
 // Rem settings
 // $rem-baseline: 10px !default; <--- Add this inside html tag /= font-size 62.5%
-$rem-fallback: false !default;
-$rem-px-only: false !default;
+// $rem-fallback: false !default;
+// $rem-px-only: false !default;
 
 // Em settings
 // $em-base: 16px !default; <--- Add this inside settings directory file
@@ -124,7 +124,7 @@ $rem-px-only: false !default;
 // Generates line-height values in both pixels and em.
 @mixin line-height($height-value: 12) {
     line-height: $height-value * 1px; //fallback for old browsers
-    line-height: (1 / ($base-font-size / ($base-font-size * 0 + 1)) * $height-value * 1em);
+    line-height: (1 / ($em-base / ($em-base * 0 + 1)) * $height-value * 1em);
   }
 
 
