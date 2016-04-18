@@ -3,19 +3,20 @@
 \*------------------------------------*/
 
 .c-header {
-  &--left {
-  }
-  &--list{
-  }
-  &__item-link {
-  }
-  &-brand {
-  }
-
-  &--right {
-  }
-  &-brand{
-  }
-  &__brand-name{
-  }
+  //header-left
+    &--left {
+    }
+    &--list{
+    }
+    &__item-link {
+    }
+    &-brand {
+    }
+    //header-right
+    &--right {
+    }
+    &-brand{
+    }
+    &__brand-name{
+    }
 }
