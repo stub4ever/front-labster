@@ -1,12 +1,21 @@
+/*------------------------------------*\
+    $IMPORTS
+\*------------------------------------*/
+
+// GENERIC - ulitly styles etc
+@import 'generic/generic';
+
 // VENDOR
 @import 'vendor/vendor';
 
-// Settings - Globally-available variables and config
+// SETTINGSS - Globally-available variables and config
+@import 'settings/default';
+@import 'generic/debug'; // Debug mode
 
-// Tools - Usefull mixins
+// TOOLS - Usefull mixins
 @import 'tools/tools';
 
-// BASE - Headings styles, img, html etc
+// BASE - unclassed HTML elements etc.
 @import 'base/base';
 
 // COMPONENTS - modular "element"
@@ -14,4 +23,4 @@
 
 // OBJECTS - Wrapping and constraining elements
 
-// State -
+// STATE -
