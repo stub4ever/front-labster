@@ -1,0 +1,13 @@
+/*------------------------------------*\
+    $MAIN
+\*------------------------------------*/
+
+html {
+	font-size: $rem-baseline;
+	@extend %border-box-on-every-element;
+	@extend %optimize-rendering-text;
+}
+
+body {
+	font-family: $base-font-family;
+}
