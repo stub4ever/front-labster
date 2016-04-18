@@ -1,0 +1,13 @@
+// MUST applied to `<html> for optimise text
+%optimize-rendering-text {
+  text-rendering: optimizeLegibility;
+}
+
+// MUST applied to `<html> for optimise flexbox
+%border-box-on-every-element  {
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+}
