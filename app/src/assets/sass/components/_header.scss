@@ -5,7 +5,7 @@
 .c-header {
 	    @include flex-align(justify, null)
 	    @include container;
-	    height: rem(90px);
+	    height: em(90px, $em-base);
 	    background-color: $black;
 
     //header-left
@@ -61,7 +61,7 @@
     }
     &__brand-name{
     	text-transform: uppercase;
-    	font-size: em(25px, $em-base);
+    	font-size: em(19px, $em-base);
     	font-weight: 700;
     	color: $white;
     }

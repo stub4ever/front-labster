@@ -13,7 +13,7 @@ $debug-mode: false!default;
  */
 
 // Rem settings for rem unit > tools
-$rem-baseline: 10px !default;
+$rem-baseline: 16px !default;
 $rem-fallback: false !default;
 $rem-px-only: false !default;
 
@@ -37,10 +37,10 @@ $h5-size: em(34px, $em-base)!default;		$h5-line-height: em(30px, $em-line-height
 $h6-size: em(30px, $em-base)!default;		$h6-line-height: em(32px, $em-line-height)!default;
 
 // base paragaphs fonts 					// base paragaphs line-height
-$p-font-size: em(25px,$em-base)!default;	$p-line-height: em(26px,$em-base)!default;
+$p-font-size: em(17px,$em-base)!default;	$p-line-height: em(26px,$em-base)!default;
 
 // base link fonts
-$a-font-size: em(25px,$em-base)!default;
+$a-font-size: em(17px,$em-base)!default;
 
 /**
  * BASE BREAKINGPOINTS
