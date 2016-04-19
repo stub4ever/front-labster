@@ -36,8 +36,6 @@
 	    	margin: rem(10px 0);
 	    }
     }
-    &-brand {
-    }
     //header-right
     .c-header > &--right {
     	@include flex-align(right, center);
