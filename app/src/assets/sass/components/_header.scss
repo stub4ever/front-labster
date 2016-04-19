@@ -14,13 +14,15 @@
 	    flex: 0 0 67.5%;
 	    margin-left: 2.5%;
     }
-    &--list{
+    &--list,
+    ul.c-header--list {
 	    @include flex-align(null,center);
 	    @include container;
 	    flex: 1;
 	    text-align: center;
     }
-    &--list > &__item-link {
+    &--list > &__item-link,
+    li.c-header__item-link {
 	    text-align: center;
 	    margin: rem(10px 20px);
 	    @include media('<=tablet') {
@@ -59,7 +61,8 @@
 			width: em(90px,$em-base);
 		}
     }
-    &__brand-name{
+    &__brand-name,
+    a.c-header__brand-name {
     	text-transform: uppercase;
     	font-size: em(19px, $em-base);
     	font-weight: 700;
