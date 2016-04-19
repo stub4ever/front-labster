@@ -23,6 +23,15 @@
     &--list > &__item-link {
 	    text-align: center;
 	    margin: rem(10px 20px);
+	    @include media('<=tablet') {
+			&:nth-child(3) {
+				display: none;
+				width: em(90px,$em-base);
+			}
+			&:nth-child(4) {
+				margin: rem(0px 0);
+			}
+		}
 	    a {
 	    	color: $white;
 	    	&:hover {
@@ -45,6 +54,10 @@
     &--brand-logo{
     	margin: rem(0 5px);
     	width: em(45px,$em-base);
+    	@include media('<=tablet') {
+			display: none;
+			width: em(90px,$em-base);
+		}
     }
     &__brand-name{
     	text-transform: uppercase;

@@ -42,5 +42,12 @@ $p-font-size: em(25px,$em-base)!default;	$p-line-height: em(26px,$em-base)!defau
 // base link fonts
 $a-font-size: em(25px,$em-base)!default;
 
+/**
+ * BASE BREAKINGPOINTS
+ */
 
-
+$breakpoints: (
+	'phone': 320px,
+	'tablet': 768px,
+	'screen': 1024px
+) !default;
