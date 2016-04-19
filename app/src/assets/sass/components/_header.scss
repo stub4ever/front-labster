@@ -3,54 +3,56 @@
 \*------------------------------------*/
 
 .c-header {
-	    height: 90px;
-	    display: flex;
-	    background-color: black;
-	    max-width: 100%;
-	    justify-content: space-between;
-  //header-left
-    &--left {
-	    display: flex;
-	    align-items: center;
-	    flex: 0 0 47.5%;
+	    @include flex-align(justify, null)
+	    @include container;
+	    height: rem(90px);
+	    background-color: $black;
+
+    //header-left
+    .c-header > &--left {
+    	@include flex-align(null,center);
+	    flex: 0 0 67.5%;
 	    margin-left: 2.5%;
     }
     &--list{
-	    display: flex;
+	    @include flex-align(null,center);
+	    @include container;
 	    flex: 1;
-	    width: 100%;
 	    text-align: center;
-	    align-items: center
     }
     &--list > &__item-link {
 	    text-align: center;
-	    margin: 10px 20px;
+	    margin: rem(10px 20px);
 	    a {
-	    	color: white;
+	    	color: $white;
+	    	&:hover {
+	    		opacity: 0.7;
+	    	}
 	    }
 	    i {
-	    	font-size: 20px;
+	    	font-size: em(20px, $em-base);
 	    }
 	    &:nth-child(odd) {
-	    	margin: 10px 0;
+	    	margin: rem(10px 0);
 	    }
     }
     &-brand {
     }
     //header-right
-    &--right {
-	   	display: flex;
-	    align-items: center;
-	    flex: 0 0 47.5%;
-	    justify-content: flex-end;
+    .c-header > &--right {
+    	@include flex-align(right, center);
+	    flex: 0 0 27.5%;
 	    margin-right: 2.5%;
     }
     &--brand-logo{
-    	margin-right: 20px;
+    	margin: rem(0 5px);
+    	width: em(45px,$em-base);
     }
     &__brand-name{
-    	color: white;
-    	font-size: 20px;
+    	text-transform: uppercase;
+    	font-size: em(25px, $em-base);
+    	font-weight: 700;
+    	color: $white;
     }
 }
 
