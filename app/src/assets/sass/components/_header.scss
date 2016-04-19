@@ -22,7 +22,7 @@
 	    text-align: center;
 	    align-items: center
     }
-    &__item-link {
+    &--list > &__item-link {
 	    text-align: center;
 	    margin: 10px 20px;
 	    a {
