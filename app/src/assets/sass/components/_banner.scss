@@ -2,7 +2,7 @@
 	display: inline-block;
 	position: relative;
 	width: 100%;
-	height: auto;
+	height: 380px;
 	&--background {
 		background-image: url("../img/banner.jpg");
 		z-index: -1;
@@ -14,5 +14,52 @@
 	    height: 380px;
 	    background-position: center center;
 	    background-size: cover;
+	}
+	&--left {
+		flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	}
+
+	&__title {
+		color: white;
+		opacity: 0.9;
+    	font-size: 35px;
+    	font-weight: 400;
+	}
+
+	&--right {
+		display: flex;
+    	flex-direction: row;
+    	align-items: flex-end;
+    	flex: 0 0 50%;
+    	justify-content: flex-end;
+    	margin-bottom: 20px;
+	}
+
+	&--url__line > a,
+	span.c-banner--url__line {
+		color: white;
+    	font-weight: 100;
+    	border-bottom: 1px solid white;
+    	padding-bottom: 2px;
+    	margin: 0 10px;
+    	&:hover {
+    		opacity:0.7;
+    	}
+	}
+	&--detail, a.c-banner--detail {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $white;
+		&:hover {
+    		opacity:0.7;
+    	}
+	}
+	&--url__text {
+		color: white;
 	}
 }
