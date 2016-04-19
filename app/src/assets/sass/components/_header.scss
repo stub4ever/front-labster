@@ -7,7 +7,6 @@
 	    @include container;
 	    height: em(90px, $em-base);
 	    background-color: $black;
-
     //header-left
     .c-header > &--left {
     	@include flex-align(null,center);

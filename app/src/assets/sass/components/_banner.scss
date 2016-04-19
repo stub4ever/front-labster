@@ -1,0 +1,18 @@
+.c-banner {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	&--background {
+		background-image: url("../img/banner.jpg");
+		z-index: -1;
+		position: absolute;
+	    top: 0px;
+	    bottom: 0px;
+	    left: 0;
+	    right: 0;
+	    height: 380px;
+	    background-position: center center;
+	    background-size: cover;
+	}
+}
