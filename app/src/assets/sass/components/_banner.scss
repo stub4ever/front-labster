@@ -27,7 +27,7 @@
     	@include media('>phone'){
 			font-size: em(22px, $em-base);
     	}
-    	@include media('>tablet'){
+    	@include media('>=tablet'){
 			font-size: em(25px, $em-base);
     	}
 	}
@@ -36,8 +36,8 @@
     	margin-bottom: em(20px, $em-base);
     	flex-direction: row;
     	flex: 0 0 50%;
-    	@include media('>phone', '<tablet'){
-    		@include flex-align(center, bottem)
+    	@include media('>phone', '<=tablet'){
+    		@include flex-align(center, bottom)
     		flex: 0 0 30%;
     	}
 	}
@@ -61,7 +61,7 @@
     	@include media('>phone'){
 			font-size: em(13px, $em-base);
     	}
-    	@include media('>phone', '<tablet'){
+    	@include media('>phone', '<=tablet'){
     		margin-bottom: 20px;
     	}
 	}
