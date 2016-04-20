@@ -47,7 +47,7 @@ $a-font-size: em(15px,$em-base)!default;
  */
 
 $breakpoints: (
-	'phone': 320px,
-	'tablet': 768px,
-	'screen': 1024px
+	'phone': 20em,
+	'tablet': 48em,
+	'screen': 64em
 ) !default;
