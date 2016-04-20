@@ -16,7 +16,7 @@
 		flex: 0 0 50%;
 	    flex-direction: column;
 	    @include media('>phone', '<tablet'){
-    		flex: 0 0 70%;
+    		flex: 0 0 80%;
     	}
 	}
 	&__title {
@@ -38,7 +38,7 @@
     	flex: 0 0 50%;
     	@include media('>phone', '<=tablet'){
     		@include flex-align(center, bottom)
-    		flex: 0 0 30%;
+    		flex: 0 0 20%;
     	}
 	}
 	&--url__line > a,
