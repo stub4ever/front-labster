@@ -3,4 +3,7 @@
 	display: flex;
 	justify-content: space-between;
 	height: 100%;
+	@include media('>phone', '<tablet'){
+		flex-direction: column;
+    }
 }
