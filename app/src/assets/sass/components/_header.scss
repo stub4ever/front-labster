@@ -25,7 +25,7 @@
     	text-align: center;
     	margin: rem(10px 20px);
     	@include media('<=tablet') {
-    		&:nth-child(3) {
+    		&:nth-child(4) {
     			display: none;
     			width: em(90px,$em-base);
     		}
