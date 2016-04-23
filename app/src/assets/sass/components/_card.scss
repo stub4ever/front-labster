@@ -1,0 +1,69 @@
+.c-card {
+	&__header {
+		@include flex-align(justify, center);
+	    flex: 1;
+	    padding-bottom: em(10px, $em-base);
+	    &-link {
+			color: $black;
+			transition: all 300ms;
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+	}
+
+	&__user, a.c-card__user {
+		flex: 1;
+		padding-left: em(10px, $em-base);
+	}
+	&--list, ul.c-card--list {
+		@include flex-align(justify, center);
+		flex: 0 0 60%;
+	}
+	ul.c-card--list > &__icon, li.c-card__icon {
+		padding-left: em(15px, $em-base);
+		&:first-child {
+			padding-left: 0em;
+		}
+	}
+	.o-block > .c-card__icon {
+		@include media('>phone', '<=33em') {
+			display: none;
+		}
+	}
+	&__icon {
+		@include flex-align(right,null)
+		a {
+			font-size: em(15px, $em-base);
+			transition: all 300ms;
+			color: $dark-grey;
+			&:hover {
+				color: $black;
+			}
+		}
+		span {
+			padding-left: em(5px, $em-base);
+		}
+	}
+	&__body, img.c-card__body {
+		a {
+			opacity: 1;
+			transition: all 300ms;
+			&:hover {
+				opacity: 0.9;
+			}
+		}
+		img {
+			max-width: 100%;
+			object-fit: cover;
+		}
+	}
+	&__description {
+		padding: em(15px 0, $em-base);
+		font-size: em(15px, $em-base);
+		font-weight: 500;
+	}
+	&__footer {
+		@include flex-align(justify, center);
+	}
+}

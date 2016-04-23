@@ -1,0 +1,42 @@
+.c-button {
+	&--cirkel{
+		@include flex-align(center, center);
+		border: em(1px solid $dark-grey, $em-base);
+		border-radius: 50%;
+		width: em(30px, $em-base);
+		height: em(30px, $em-base);
+	}
+	&__follow, a {
+		transition: all 300ms;
+		a {
+			font-size: em(12px, $em-base);
+			color: $dark-grey;
+			&:hover {
+				font-size: em(15px, $em-base);
+				font-weight: 700;
+			}
+		}
+		&:hover{
+			background-color: $black;
+			color: $white;
+		}
+	}
+	&__grey > a {
+		transition: all 300ms;
+		display: block;
+	    border-radius: em(10px, $em-base);
+	    background-color: $light-grey;
+	    font-size: em(14px, $em-base);
+	    width: em(60px, $em-base);
+	    @include flex-align(center, null);
+	    padding: em(2px 0, $em-base);
+		font-weight: 400;
+		opacity: 0.6;
+		color: $black;
+    	&:hover {
+    		background-color: $dark-grey;
+    		color: $black;
+		}
+	}
+}
+

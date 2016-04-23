@@ -1,0 +1,18 @@
+.c-grid {
+	&--row {
+		@include row;
+    	//justify-content: space-between;
+	}
+	&--col {
+		@include col($c4);
+		@include media('>phone', '<=33em') {
+			@include col($c1);
+		}
+		@include media('>=33em', '<=53em') {
+			@include col($c2);
+		}
+		@include media('>=53em', '<=78em') {
+			@include col($c3);
+		}
+	}
+}

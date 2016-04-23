@@ -1,5 +1,7 @@
 .c-avatar {
-	&--small{
-
+	&--small > img{
+		width: em(30px, $em-base);
+		height: em(30px, $em-base);
+		object-fit: cover;
 	}
 }

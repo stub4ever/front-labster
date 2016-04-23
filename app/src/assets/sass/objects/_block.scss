@@ -1,0 +1,7 @@
+.o-block {
+	@include flex-align(justify, center);
+	flex: 1;
+	@include media('>phone', '<=33em') {
+		@include flex-align(right, null);
+	}
+}

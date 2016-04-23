@@ -42,6 +42,31 @@ $p-font-size: em(15px,$em-base)!default;	$p-line-height: em(24px,$em-base)!defau
 // base link fonts
 $a-font-size: em(15px,$em-base)!default;
 
+
+// base grid container width
+$grid-width: 100% !default;
+
+// base col
+$c1: $grid-width / 1 !default;
+$c2: $grid-width / 2 !default;
+$c3: $grid-width / 3 !default;
+$c4: $grid-width / 4 !default;
+$c5: $grid-width / 5 !default;
+$c6: $grid-width / 6 !default;
+$c7: $grid-width / 7 !default;
+$c8: $grid-width / 8 !default;
+$c9: $grid-width / 9 !default;
+$c10: $grid-width / 10 !default;
+$c11: $grid-width / 11 !default;
+$c12: $grid-width / 12 !default;
+
+// base gutter
+$gutter: 2.5em !default;
+
+// base grid-system
+$grid-system: 'flex'; //flex, float or use both as fallback inside the file
+
+
 /**
  * BASE BREAKINGPOINTS
  */
@@ -49,5 +74,5 @@ $a-font-size: em(15px,$em-base)!default;
 $breakpoints: (
 	'phone': 20em,
 	'tablet': 48em,
-	'screen': 64em
+	'desktop': 64em
 ) !default;

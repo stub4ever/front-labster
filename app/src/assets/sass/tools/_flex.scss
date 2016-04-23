@@ -2,7 +2,6 @@
 // Flexbox
 // -----------------------------------------------------
 
-
 /**
  * Fixes the min-height bug in IE10-11.
  * This class should be added to a container element as described in
@@ -13,7 +12,121 @@
   flex-direction: column;
 }
 
-// Flex Grid system
+// flex grid AND float fallback.
+@mixin grid-row-float {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin grid-row-flex () {
+    display: flex;
+    flex-wrap: wrap; // IE10 only seems to work with this value
+}
+
+@mixin grid-col-float ($base-width:100%) {
+    float: left;
+    width: $base-width;
+}
+
+@mixin grid-col-flex ($base-width:auto) {
+    // flex: 0 0 $base-width;
+    // IE 10 has problems with flex and box-sizing: border-box - https://github.com/philipwalton/flexbugs/issues/3
+    max-width: $base-width;
+    flex: 0 0 $base-width;
+}
+
+@mixin row($col-width: $grid-width) {
+    // for nested grid
+    margin: ($gutter / -2);
+
+    @if ($grid-system == 'flex' or $grid-system == 'all') {
+        @include grid-row-flex;
+    }
+
+    @if ($grid-system == 'float' or $grid-system == 'all') {
+        @include grid-row-float;
+    }
+
+    > * {
+        @include col($col-width);
+    }
+}
+
+@mixin col($width: $grid-width) {
+    padding: ($gutter / 2);
+
+    @if ($grid-system == 'flex' or $grid-system == 'all') {
+        @include grid-col-flex($width);
+    }
+
+    @if ($grid-system == 'float' or $grid-system == 'all') {
+        @include grid-col-float($width);
+    }
+}
+
+@function col-size($grid-width, $col) {
+  @return col-calculation($grid-width, $col);
+}
+
+
+
+// @mixin flexGrid($count,$gutter){
+
+//   // calculates single grid item width
+//   $oneGridItemWidth: 100 / $count;
+
+//   //calculates excess margin equally to the column count
+//   $extra: $gutter / $count;
+//   .flexGrid {
+//     display: flex;
+//     overflow: hidden;
+//   }
+
+//   .flexGrid-col {
+//     float: left;
+//   }
+
+//   .flexGrid-col + .flexGrid-col { margin-left: unquote($gutter + '%'); }
+
+//   //The loop that creates all of your grid item classes and widths
+//   @for $i from 1 through $count {
+//       .flexGrid-col_#{$i}of#{$count} {
+//         width: unquote(($oneGridItemWidth * $i) - $gutter + ($extra * $i) + '%');
+//       }
+//   }
+
+//   //Flex Grid Breakpoint Styling
+//   @media screen and (max-width:700px) {
+//     .flexGrid {
+//       flex-direction: column;
+//     }
+
+//     .flexGrid-col + .flexGrid-col {
+//       margin-left: 0;
+//     }
+
+
+//     @for $i from 1 through $count {
+//       .flexGrid-col_#{$i}of#{$count} {
+//         width: 100%;
+//       }
+
+//       //Loop to create orders for you to rearrange cols on breakpoints
+//       .flexGrid-col_moveTo#{$i} {
+//         order: #{$i};
+//       }
+//     }
+//   }
+// }
+
+
+// // Defining Grid
+// @include flexGrid(12,2); //column count, gutter
+
+
 @mixin flex-row{
   display: flex;
   width: 100%;
