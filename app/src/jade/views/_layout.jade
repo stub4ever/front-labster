@@ -4,8 +4,19 @@ doctype html
 html(lang="en")
 	block vars
 	head
+		// Meta ===============================================
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(name='description', content='#{description}')
+		meta(name='author', content='#{author}')
+		meta(name='keywords', content='#{keywords}')
+
 		block title
 			title #{pageTitle} - frontlabster
+
+
 		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Lato:400,300,700')
 		link(rel='stylesheet', href='assets/css/screen.css')
 	body(class='#{bodyClass}')
